@@ -14,14 +14,14 @@
 var fun_modlist_entries = [
   [
     'fun_body()',
-    'http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_body.js',
+    'https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_body.js',
     null,
     'Builds core DOM: div_Background, div_Cocainer, div_HotKeys (buttons 0-4), print button, draggable div_modlist panel.',
     '09:54'
   ],
   [
     'fun_modlist()',
-    'http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_modlist.js',
+    'https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_modlist.js',
     'fun_body()',
     'Module registry. Stores and renders metadata for every loaded script into div_modlist_body.',
     '09:54'
