@@ -4,10 +4,10 @@
   // ── 
 
 var fun_list_current_list = [
-  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_body.js',          `fun_body();`],
-  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_modlist.js',          `fun_modlist();`],
-  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_body.js',          `fun_body();`],
-  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_modlist.js',          `fun_modlist();`],
+  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_body.js',          `fun_body();`],
+  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_modlist.js',          `fun_modlist();`],
+  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_body.js',          `fun_body();`],
+  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_modlist.js',          `fun_modlist();`],
   
 ];
 
@@ -37,20 +37,27 @@ function fun_list() {
     return;
   }
 
-  var script = document.createElement('script');
-  script.src = file;
+  // NOTE: external hosts (e.g. raw.githubusercontent.com) serve .js files
+  // with Content-Type: text/plain, which browsers refuse to execute via
+  // <script src="...">. fetch() the source as text and inject it via an
+  // inline <script> instead — this works for both local and external URLs.
+  fetch(file)
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    })
+    .then(function(code) {
+      var script = document.createElement('script');
+      script.textContent = code;
+      document.head.appendChild(script);
 
-  script.onload = function() {
-    fun_list_loaded[file] = true;
-    console.log('[fun_list] Loaded:', file, '— executing:', expression);
-    try { eval(expression); } catch(e) { console.error('[fun_list] eval error:', e); }
-    fun_list();
-  };
-
-  script.onerror = function() {
-    console.error('[fun_list] Failed to load:', file);
-    fun_list();
-  };
-
-  document.head.appendChild(script);
+      fun_list_loaded[file] = true;
+      console.log('[fun_list] Loaded:', file, '— executing:', expression);
+      try { eval(expression); } catch(e) { console.error('[fun_list] eval error:', e); }
+      fun_list();
+    })
+    .catch(function(err) {
+      console.error('[fun_list] Failed to load:', file, err);
+      fun_list();
+    });
 }
