@@ -4,10 +4,10 @@
   // ── 
 
 var fun_list_current_list = [
-  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_body.js',          `fun_body();`],
-  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_modlist.js',          `fun_modlist();`],
-  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_body.js',          `fun_body();`],
-  ['http://192.168.192.121:3000/2026.06.HTMLParser/2026.06.27.Sat.09.54.36%20base_on_these/fun_modlist.js',          `fun_modlist();`],
+  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_body.js',          `fun_body();`],
+  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_modlist.js',          `fun_modlist();`],
+  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_body.js',          `fun_body();`],
+  ['https://raw.githubusercontent.com/LittleEnvie/HTMLParser/refs/heads/HTMLParser/fun_modlist.js',          `fun_modlist();`],
   
 ];
 
