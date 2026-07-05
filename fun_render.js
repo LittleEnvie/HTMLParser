@@ -1,3 +1,9 @@
+
+  // ── 
+  // ──   LAST EDIT 2026.07.05.Sun.15.
+  // ── 
+
+
 /* ── fun_render.js — convert raw HTML div tree into interactive block nodes ── */
 
 var fun_render_selectedWrapper = null;
